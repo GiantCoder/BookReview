@@ -25,6 +25,7 @@ gem 'simple_form', '~> 3.1.1'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise', '~> 3.5.2'
+gem 'paperclip', '~> 4.3.1'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
