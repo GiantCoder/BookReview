@@ -17,6 +17,7 @@
 @import url(http://fonts.googleapis.com/css?family=Lora|Ubuntu:300,400,500); 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "animate";
 
 /* Variables, mixins, etc.. */
 
@@ -28,6 +29,86 @@
 	padding: 1.5em 1.25em;
 }
 
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		visibility: hidden;
+	}
+
+	to {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+@keyframes bounceIn {
+  from, 20%, 40%, 60%, 80%, to {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    transform: scale3d(.3, .3, .3);
+  }
+
+  20% {
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  40% {
+    transform: scale3d(.9, .9, .9);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  80% {
+    transform: scale3d(.97, .97, .97);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.bounceIn {
+  animation-name: bounceIn;
+}
+
+@keyframes bounceInLeft {
+  from, 60%, 75%, 90%, to {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    transform: translate3d(-3000px, 0, 0);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate3d(25px, 0, 0);
+  }
+
+  75% {
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  90% {
+    transform: translate3d(5px, 0, 0);
+  }
+
+  to {
+    transform: none;
+  }
+}
+
+.bounceInLeft {
+  animation-name: bounceInLeft;
+}
 
 /* General styles */
 
@@ -150,16 +231,20 @@ p.alert, p.notice {
 	width: 250px;
 	margin-bottom: 40px;
 	@include background-tile;
+	animation: fadeIn 1.5s;
 }
 
 .book-show {
 	height: 475px;
 	width: 325px;
 	@include background-tile;
+	animation: bounceInLeft 2s;
+
 }
 
 .book-info {
 	@include background-tile;
+	animation: fadeIn 2s;
 
 	.book-title {
 		margin-top: 0;
@@ -209,6 +294,7 @@ p.alert, p.notice {
 
 	@include background-tile;
 	margin-top: 40px;
+	animation: bounceIn 3s;
 
 	h1 {
 		margin-top: 0;

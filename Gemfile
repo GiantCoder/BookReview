@@ -2,8 +2,9 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
-# Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+gem 'pg'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -27,6 +28,10 @@ gem 'simple_form', '~> 3.1.1'
 gem 'devise', '~> 3.5.2'
 gem 'paperclip', '~> 4.3.1'
 
+# group :production do
+#	gem 'pg'
+# end
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -35,12 +40,13 @@ gem 'paperclip', '~> 4.3.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  	gem 'byebug'
+	gem 'better_errors'
+	gem 'quiet_assets'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+ 	gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  	gem 'spring'
 end
-

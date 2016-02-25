@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150912122517) do
+ActiveRecord::Schema.define(version: 20150920214435) do
+
+  create_table "book_tags", force: :cascade do |t|
+    t.integer  "book_id"
+    t.integer  "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "book_tags", ["book_id"], name: "index_book_tags_on_book_id"
+  add_index "book_tags", ["tag_id"], name: "index_book_tags_on_tag_id"
 
   create_table "books", force: :cascade do |t|
     t.string   "title"
@@ -25,6 +35,8 @@ ActiveRecord::Schema.define(version: 20150912122517) do
     t.string   "book_img_content_type"
     t.integer  "book_img_file_size"
     t.datetime "book_img_updated_at"
+    t.string   "amazon_url"
+    t.text     "keywords"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -40,6 +52,12 @@ ActiveRecord::Schema.define(version: 20150912122517) do
     t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.integer  "book_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

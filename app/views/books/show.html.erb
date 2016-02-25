@@ -13,7 +13,7 @@
 			<div class="average-review-rating" data-score=<%= @average_review %>></div>
 			<span class="number-of-reviews">Based on <%= @book.reviews.count %> reviews</span>
 			<p class="book-desc"><%= @book.description %><p>
-
+			<a href="<%= @book.amazon_url %>">Buy this on Amazon <img src="/assets/amazon_logo.jpeg" height="30" width="30" /></a>
 		</div>
 	</div>
 
